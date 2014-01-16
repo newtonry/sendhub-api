@@ -7,7 +7,7 @@ module MessagesHelper
   end
   
   def is_number_valid?(phone_number)
-    #not valid if the lenght is off or includes any non-integers
+    #not valid if the length is off or includes any non-integers
     return false if phone_number.length !=10 || !(Integer(phone_number) rescue false)
     true
   end

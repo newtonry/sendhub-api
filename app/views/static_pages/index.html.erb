@@ -1,1 +1,9 @@
-Info goes here
+<h1>Ryan von Kunes Newton - SendHub Challenge</h1>
+<a href = 'http://fadetoproductions.com/ryan/resume.pdf'>Resume</a> | <a href = 'https://github.com/newtonry'>GitHub</a> | <a href = 'http://fadetoproductions.com'>Portfolio</a> | <a href = 'http://www.linkedin.com/in/vonkunesnewton'>LinkedIn</a> | <a href = 'http://www.brewklok.com'>Brewklok</a> | <a href = 'http://revris.fadetoproductions.com'>Revris</a>
+
+<h2>Algorithm</h2>
+<p>The problem at hand is pretty much identical to the Change Making Problem, where you want to give back say 93 cents using the fewest number of coins. With this problem we want to use the fewest number of requests to send the message.</p>
+<p>In fact, the category sizes even mimic the US currency system 1,5,10,25 cents/messages. Hence, I'm attacking this problem in a similar manner. Because of the nature of the values of the categories we can actually use a greedy algorithm to solve this issue. Basically, we keep on using the largest possible categories until we are done. This should work in O(n) time complexity.</p>
+<p>However, using a greedy algorithm would not necessarily be possible if the throughput sizes were different, in which case we might need to solve it with dynamic or linear solutions. <a href = 'http://en.wikipedia.org/wiki/Change-making_problem'>http://en.wikipedia.org/wiki/Change-making_problem</a></p>
+<h2>Solution</h2>
+<p>I used ruby on rails to build out an api. You POST a json object to http://sendhub-rvkn.herokuapp.com/messages and are returned a json object. You can use the following bash script to make cURL calls, or you can use an rspec.</p>
