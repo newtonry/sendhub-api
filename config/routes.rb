@@ -1,3 +1,3 @@
 SendHubChallenge::Application.routes.draw do
-  resources :messages
+  resources :messages, only: :create
 end

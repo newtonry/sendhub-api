@@ -2,23 +2,25 @@ require 'route'
 
 class MessagesController < ApplicationController
   def create
+    input = ActiveSupport::JSON.decode(request.body.read)
     
-    #test phone numbers legitimacy
-    numbers_valid?(params['recipients'])
-    
+    if !numbers_valid?(input['recipients'])
+      render :json => { :errors => "There was a non-legitimate number" }, :status => 400
+    elsif !input.has_key?("message")
+      render :json => { :errors => "There was no message" }, :status => 400
+    else
+      
+      recipients_left = input['recipients']
+      routes = []
+  
+      determine_bucket_sizes(input['recipients'].length).reverse.each do |size|
+        routes << Route.new(size, recipients_left[0...size])
+        recipients_left = recipients_left[size..-1]
+      end
 
-    recipients_left = params['recipients']
-    routes = []
+      response = { "message" => input["message"], "routes" => routes }
     
-    determine_bucket_sizes(params['recipients'].length).reverse.each do |size|
-      routes << Route.new(size, recipients_left[0...size])
-      recipients_left = recipients_left[size..-1]
+      render :json => response
     end
-    response = {
-      "message" => params["message"],
-      "routes" => routes
-    }
-    
-    render :json => response#x.ip#determine_buckets(params['recipients'].length)
   end
 end
