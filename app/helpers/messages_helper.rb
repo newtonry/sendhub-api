@@ -15,7 +15,7 @@ module MessagesHelper
   def determine_bucket_sizes(phone_number_count)
     #we are going to use a greedy algorithm, because it works for the given size of buckets
     #similar to the change making solution
-    #however, it wouldn't work if the currencies were different
+    #however, it wouldn't necessarily work if the currencies were different
     
     sizes = [1,5,10,25]
     buckets = []

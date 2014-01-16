@@ -9,7 +9,6 @@ class MessagesController < ApplicationController
     elsif !input.has_key?("message")
       render :json => { :errors => "There was no message" }, :status => 400
     else
-      
       recipients_left = input['recipients']
       routes = []
   
@@ -19,7 +18,6 @@ class MessagesController < ApplicationController
       end
 
       response = { "message" => input["message"], "routes" => routes }
-    
       render :json => response
     end
   end

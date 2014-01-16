@@ -1,9 +1,15 @@
 <h1>Ryan von Kunes Newton - SendHub Challenge</h1>
 <a href = 'http://fadetoproductions.com/ryan/resume.pdf'>Resume</a> | <a href = 'https://github.com/newtonry'>GitHub</a> | <a href = 'http://fadetoproductions.com'>Portfolio</a> | <a href = 'http://www.linkedin.com/in/vonkunesnewton'>LinkedIn</a> | <a href = 'http://www.brewklok.com'>Brewklok</a> | <a href = 'http://revris.fadetoproductions.com'>Revris</a>
-
+<p>ryan@fadetoproductions.com</p>
 <h2>Algorithm</h2>
 <p>The problem at hand is pretty much identical to the Change Making Problem, where you want to give back say 93 cents using the fewest number of coins. With this problem we want to use the fewest number of requests to send the message.</p>
 <p>In fact, the category sizes even mimic the US currency system 1,5,10,25 cents/messages. Hence, I'm attacking this problem in a similar manner. Because of the nature of the values of the categories we can actually use a greedy algorithm to solve this issue. Basically, we keep on using the largest possible categories until we are done. This should work in O(n) time complexity.</p>
 <p>However, using a greedy algorithm would not necessarily be possible if the throughput sizes were different, in which case we might need to solve it with dynamic or linear solutions. <a href = 'http://en.wikipedia.org/wiki/Change-making_problem'>http://en.wikipedia.org/wiki/Change-making_problem</a></p>
-<h2>Solution</h2>
-<p>I used ruby on rails to build out an api. You POST a json object to http://sendhub-rvkn.herokuapp.com/messages and are returned a json object. You can use the following bash script to make cURL calls, or you can use an rspec.</p>
+<h2>Solution and instructions</h2>
+<p>I used ruby on rails to build out an api. You POST a json object to http://sendhub-rvkn.herokuapp.com/messages and are returned a json object. You can use the following <a href = 'http://fadetoproductions.com/ryan/files/public/sendhub/sendhub_api_curl.sh'>bash script</a> to make cURL calls, although I've written an <a href = 'http://fadetoproductions.com/ryan/files/public/sendhub/sendhub_api_spec.rb'>rspec file</a>, which tests whether the API is responding with the correct results and giving errors when necessary.</p>
+<p>The rspec file can be downloaded <a href = 'http://fadetoproductions.com/ryan/files/public/sendhub/sendhub_api_spec.rb'>here</a>. In order to run it, you may have to install the rspec gem: 'gem install rspec' in the terminal. It also makes use of 'json' and 'restclient'. To run it, navigate to the directory it's in and run 'rspec sendhub_api_spec.rb' in the terminal.</p>
+<p>For the bash script, <a href = 'http://fadetoproductions.com/ryan/files/public/sendhub/sendhub_api_curl.sh'>download</a> it and navigate to the directory, then run 'bash sendhub_api_curl.sh'</p>
+<p>To test it other ways, you can POST a json object to 'http://sendhub-rvkn.herokuapp.com/messages'</p>
+<a href = "https://github.com/newtonry/sendhub-api">GitHub for this project</a>
+<h2>Biggest Win</h2>
+<p>There were many wins, but one that comes to mind (although not code related) was when a big high profile project video project that had been neglected was handed to me, with an extremely tight deadline. About 2 weeks of non-stop editing and we were able to push out <a href="http://www.bc.edu/content/bc/admission/undergrad/whybc-roundtree.html">these five videos</a> in time for the deadline. The project ultimately led to a big push for a promotion.</p>
